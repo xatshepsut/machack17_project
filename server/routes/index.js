@@ -21,7 +21,7 @@ router.get('/emotions', (req, res, next) => {
 });
 
 router.post('/emotions', (req, res, next) => {
-  return emotionsApi.post(req, res);
+  return emotionsApi.create(req, res);
 });
 
 //////////// emotions api  end /////////////

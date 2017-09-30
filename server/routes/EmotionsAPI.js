@@ -1,14 +1,24 @@
-
+import EmotionsModel from '../models/Emotions';
 
 class EmotionsAPI {
-  constructor() {}
+  constructor() {
+  }
 
   get(req, res) {
-    res.send('sdf');
+    EmotionsModel.findAll()
+      .then(data=> {
+        res.json(data)
+      }).catch(err=> {
+      res.send({})
+    });
   }
 
   create(req, res) {
-
+    EmotionsModel.save(req.body.emotions).then((res)=> {
+      console.log(res)
+    }).catch(err=> {
+    });
+    res.json(req.body.emotions);
   }
 }
 
