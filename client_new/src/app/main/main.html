@@ -6,7 +6,7 @@
   <div class="content">
   	<p class="header">Hi Jack!</p>
   	<p class="subheader">Your mood now is</p>
-  	<span class="emoji" ng-if="MainCtrl.currentMood.icon" ng-class="[MainCtrl.currentMood.icon]"></span>
-  	<span class="bullets" ng-if="!MainCtrl.currentMood.icon">...</span>
+  	<span class="emoji" ng-class="[MainCtrl.currentMood.icon]"></span>
+  	<span class="bullets" ng-show="MainCtrl.loading">...</span>
   </div>
 </div>

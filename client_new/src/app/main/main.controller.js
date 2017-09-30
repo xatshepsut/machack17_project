@@ -11,24 +11,28 @@
     vm.openSettings = openSettings;
     vm.openStatistics = openStatistics;
     vm.currentMood = {};
-    vm.myMood = {};
+    vm.loading = true;
 
+    init();
 
     function init() {
-      $timeout(function() {
-        vm.currentMood.icon = 'icon-smile';
-      }, 4000);
-
       $interval(function() {
         Statistics.latest(function(res) {
-          vm.myMood = res;
+          fetchLatestMood();
+          findMoodEmoji();
         });
-      }, 100000);
+      }, 1000);
+
+      fetchLatestMood();
     }
 
-    Statistics.latest(function(res) {
-      vm.myMood = res;
-    });
+    function fetchLatestMood() {
+      Statistics.latest(function(res) {
+        vm.currentMood.scores = res.scores;
+        console.log('updated mood');
+        vm.loading = false;
+      });
+    }
 
     function openSettings() {
       $state.go('settings');
@@ -67,8 +71,70 @@
 
       // At last, if the user has denied notifications, and you
       // want to be respectful there is no need to bother them any more.
-    };
+    }
 
-    init();
+    function findMoodEmoji() {
+      var max = 0;
+      var maxEmotion = '';
+
+      for (var emotion in vm.currentMood.scores) {
+        if (vm.currentMood.scores[emotion] > max) {
+          max = vm.currentMood.scores[emotion];
+          maxEmotion = emotion;
+        }
+      }
+
+      switch (maxEmotion) {
+        case 'anger':
+          if (max < 50) {
+            vm.currentMood.icon = 'icon-angry';
+          } else {
+            vm.currentMood.icon = 'icon-frustrated';
+          }
+          break;
+        case 'contempt':
+          vm.currentMood.icon = 'icon-cool';
+          break;
+        case 'disgust':
+          vm.currentMood.icon = 'icon-confused';
+          break;
+        case 'fear':
+          if (max < 50) {
+            vm.currentMood.icon = 'icon-confused';
+          } else {
+            vm.currentMood.icon = 'icon-baffled';
+          }
+          break;
+        case 'happiness':
+          if (max < 30) {
+            vm.currentMood.icon = 'icon-smile';
+          } else if (max < 60) {
+            vm.currentMood.icon = 'icon-happy';
+          } else {
+            vm.currentMood.icon = 'icon-grin';
+          }
+          break;
+        case 'neutral':
+          if (max < 50) {
+            vm.currentMood.icon = 'icon-neutral';
+          } else {
+            vm.currentMood.icon = 'icon-wondering';
+          }
+          break;
+        case 'sadness':
+          if (max < 50) {
+            vm.currentMood.icon = 'icon-sad';
+          } else {
+            vm.currentMood.icon = 'icon-crying';
+          }
+          break;
+        case 'surprise':
+          vm.currentMood.icon = 'icon-shocked';
+          break;
+        default:
+          //vm.currentMood.icon = '';
+      }
+    }
+
   }
 })();
