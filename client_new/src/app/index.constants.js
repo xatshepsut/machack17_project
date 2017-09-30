@@ -5,6 +5,8 @@
   angular
     .module('app')
     .constant('malarkey', malarkey)
-    .constant('moment', moment);
+    .constant('moment', moment)
+    .constant('_', window._)
+    .constant('host', 'http://172.24.20.163:8000/');
 
 })();

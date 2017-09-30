@@ -6,8 +6,8 @@
     .factory('Statistics', statisticsService);
 
   /** @ngInject */
-  function statisticsService($resource) {
-    var apiHost = 'https://07729b15.ngrok.io/emotions';
+  function statisticsService($resource, host) {
+    var apiHost = host + 'emotions';
 
     return $resource(apiHost, { }, {
       getAll: {

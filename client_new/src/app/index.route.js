@@ -15,10 +15,10 @@
         controllerAs: 'main'
       })
       .state('settings', {
-        url: '/',
+        url: '/settings',
         templateUrl: 'app/settings/settings.html',
         controller: 'SettingsController',
-        controllerAs: 'settings'
+        controllerAs: 'SettingsCtrl'
       })
       .state('statistics', {
         url: '/statistics',
