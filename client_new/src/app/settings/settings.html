@@ -3,6 +3,6 @@
         <button class="button-icon padding icon-arrow-left" ng-click="SettingsCtrl.back()"></button>
 	</div>
 	<div class="content">
-    
+		<toggle ng-model="SettingsCtrl.settings.doNotDisturb" ng-change="SettingsCtrl.updateSettings()"></toggle>
 	</div>
 </div>
