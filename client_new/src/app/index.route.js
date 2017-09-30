@@ -21,10 +21,10 @@
         controllerAs: 'settings'
       })
       .state('statistics', {
-        url: '/',
-        templateUrl: 'app/history/history.html',
-        controller: 'HistoryController',
-        controllerAs: 'history'
+        url: '/statistics',
+        templateUrl: 'app/statistics/statistics.html',
+        controller: 'StatisticsController',
+        controllerAs: 'StatisticsCtrl'
       });
 
     $urlRouterProvider.otherwise('/');
