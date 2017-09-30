@@ -8,6 +8,7 @@
   /** @ngInject */
   function MainController($state) {
     var vm = this;
+    vm.title = 'Main';
     vm.openSettings = openSettings;
 
     init();
