@@ -26,9 +26,11 @@ var buildStyles = function() {
     precision: 10
   };
 
+  var mainSassPath = '/assets/styles/styles.scss';
+
   var injectFiles = gulp.src([
     path.join(conf.paths.src, '/app/**/*.scss'),
-    path.join('!' + conf.paths.src, '/app/index.scss')
+    path.join('!' + conf.paths.src, mainSassPath)
   ], { read: false });
 
   var injectOptions = {
@@ -44,7 +46,7 @@ var buildStyles = function() {
   var cssFilter = $.filter('**/*.css', { restore: true });
 
   return gulp.src([
-    path.join(conf.paths.src, '/app/index.scss')
+    path.join(conf.paths.src, mainSassPath)
   ])
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(wiredep(_.extend({}, conf.wiredep)))
