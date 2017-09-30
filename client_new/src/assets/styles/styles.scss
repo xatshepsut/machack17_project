@@ -1,6 +1,5 @@
 
 @import 'fonts';
-@import 'main';
 
 /**
  *  If you want to override some bootstrap variables, you have to change values here.
@@ -47,6 +46,49 @@ body,
   &:active {
     opacity: 0.6;
   }
+}
+
+.padding {
+  padding: 10px;
+}
+
+.header {
+  font-size: 60px;
+  font-weight: 500;
+}
+
+.subheader {
+  font-size: 30px;
+  padding-bottom: 30px;
+}
+
+.emoji, 
+.bullets {
+  font-size: 150px;
+}
+
+.bullets {
+  line-height: 30px;
+}
+
+.container {
+  display: flex;
+  flex-flow: row nowrap;
+  height: 100%;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.side-controls {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
 }
 
 /**
