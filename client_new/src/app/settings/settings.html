@@ -3,6 +3,20 @@
         <button class="button-icon padding icon-arrow-left" ng-click="SettingsCtrl.back()"></button>
 	</div>
 	<div class="content">
-		<toggle ng-model="SettingsCtrl.settings.doNotDisturb" ng-change="SettingsCtrl.updateSettings()"></toggle>
+		<p class="text">Recieve cheering notifications whenever your mood goes down!</p>
+		<div class="row">
+			<p class="dnd-label">"Do Not Disturb" mode</p>
+			<toggle
+				ng-model="SettingsCtrl.settings.doNotDisturb" 
+				ng-change="SettingsCtrl.updateSettings()">
+			</toggle>
+		</div>
+		<br>
+		<br>
+		<p class="text">Email your mood statistics to your doctor!</p>
+		<div>
+			<input placeholder="Doctor's Email"></input>
+			<button>Send</button>
+		</div>
 	</div>
 </div>
