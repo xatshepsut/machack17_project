@@ -15,7 +15,7 @@ class EmotionsAPI {
 
   create(req, res) {
     EmotionsModel.save(req.body.emotions).then((res)=> {
-      console.log(res)
+
     }).catch(err=> {
     });
     res.json(req.body.emotions);
