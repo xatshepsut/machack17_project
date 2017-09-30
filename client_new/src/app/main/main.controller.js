@@ -8,8 +8,8 @@
   /** @ngInject */
   function MainController($state) {
     var vm = this;
-    vm.title = 'Main';
     vm.openSettings = openSettings;
+    vm.openStatistics = openStatistics;
 
     init();
 
@@ -19,5 +19,10 @@
     function openSettings() {
       $state.go('settings');
     }
+
+    function openStatistics() {
+      $state.go('statistics');
+    }
+
   }
 })();
