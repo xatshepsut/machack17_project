@@ -17,10 +17,12 @@ router.get('/', (req, res, next) => {
 //////////// emotions api /////////////
 
 router.get('/emotions', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   return emotionsApi.get(req, res);
 });
 
 router.post('/emotions', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   return emotionsApi.create(req, res);
 });
 
@@ -30,10 +32,12 @@ router.post('/emotions', (req, res, next) => {
 
 //////////// settings api /////////////
 router.get('/settings', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   return settingsApi.get(req, res);
 });
 
 router.put('/settings', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
   return settingsApi.update(req, res);
 });
 
