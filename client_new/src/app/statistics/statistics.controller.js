@@ -8,53 +8,54 @@
   function StatisticsController($state, StatisticsService) {
     var vm = this;
     vm.statistics = [];
+
     vm.back = back;
-
-    init();
-
-    function init() {
-      StatisticsService.getAll(function(res) {
-        vm.statistics = res.concat(res);
-        console.log(vm.statistics);
-      },function(err) {
-        console.log(err);
-      });
-
-      vm.labels = ["January", "February", "March", "April", "May", "June", "July"];
-      vm.series = ['Series A', 'Series B', 'h', 'jhg'];
-      vm.data = [
-        [ {x: 2, y: 10}, {x: 0, y: 1}, {x: 1, y: 6}, {x: 4, y: 2} ],
-        [ {x: 0, y: 2}, {x: 5, y: 7}, {x: 4, y: 2}, {x: 2, y: 9} ],
-        [ {x: 0, y: 2}, {x: 5, y: 7}, {x: 4, y: 2}, {x: 2, y: 9} ],
-        [ {x: 0, y: 2}, {x: 5, y: 7}, {x: 4, y: 2}, {x: 2, y: 9} ],
-        [ {x: 4, y: 2}, {x: 5, y: 7}, {x: 4, y: 2}, {x: 2, y: 9} ]
-      ];
-      vm.onClick = function (points, evt) {
-        console.log(points, evt);
-      };
-      vm.datasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
-      vm.options = {
-        scales: {
-          yAxes: [
-            {
-              id: 'y-axis-1',
-              type: 'linear',
-              display: true,
-              position: 'left'
-            },
-            {
-              id: 'y-axis-2',
-              type: 'linear',
-              display: true,
-              position: 'right'
+    
+    vm.data = [];
+    Statistics.getAll(function(res) {
+      vm.statistics = res.concat(res);
+      console.log(vm.statistics);
+      vm.statistics.map(function(item){
+        var dataItem = [];
+          for(var i in item.scores){
+            console.log(item.scores[i])
+            if(item.scores[i] && item.scores[i] > 0){
+              dataItem.push(item.scores[i]) 
             }
-          ]
-        }
-      };
-    }
+            
+          }
+        vm.data.push(dataItem)
+      })
+    },function(err) {
+      console.log(err);
+    });
 
+    
     function back() {
       $state.go('main');
     }
+
+    vm.onClick = function (points, evt) {
+      console.log(points, evt);
+    };
+
+    vm.colors = ['#45b7cd', '#ff6384', '#ff8e72'];
+
+    vm.labels = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+    vm.datasetOverride = [
+      {
+        label: "Bar chart",
+        borderWidth: 1,
+        type: 'bar'
+      },
+      {
+        label: "Line chart",
+        borderWidth: 3,
+        hoverBackgroundColor: "rgba(255,99,132,0.4)",
+        hoverBorderColor: "rgba(255,99,132,1)",
+        type: 'line'
+      }
+    ];
   }
 })();
