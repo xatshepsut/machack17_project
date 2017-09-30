@@ -3,24 +3,33 @@
 
   angular
     .module('app')
-    .factory('SettingsService', settingsService);
+    .service('Settings', settingsService);
 
   /** @ngInject */
-  function settingsService($resource, _, host) {
+  function settingsService( _, host, $http) {
     var apiHost = host + 'settings';
 
-    return $resource(apiHost, { }, {
-      get: {
-        method: 'GET',
-        transformResponse: function(res) {
-          res = JSON.parse(res);
+    this.get = function(cb, err) {
+      $http({
+        url: apiHost,
+        method: 'GET'
+      }).then(function(data) {
+        cb(_.pick(data.data, ['doNotDisturb', 'id']));
+      }).catch(function(data) {
+        err(data);
+      });
+    };
 
-         return _.pick(res, ['doNotDisturb', 'id']);
-        }
-      },
-      update: {
+    this.update = function(data, cb, err) {
+      $http({
+        url: apiHost,
+        data: data,
         method: 'PUT'
-      }
-    });
+      }).then(function(data) {
+        cb(_.pick(data.data, ['doNotDisturb', 'id']));
+      }).catch(function(data) {
+        err(data);
+      });
+    };
   }
 })();
