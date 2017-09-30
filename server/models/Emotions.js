@@ -11,7 +11,12 @@ let EmotionsSchema = new Schema({
 let EmotionsModel = mongoose.model('emotions', EmotionsSchema);
 
 function save(data) {
-  return new EmotionsModel(JSON.parse(data)).save();
+  data = JSON.parse(data);
+  for (let i in data.scores) {
+    data.scores[i] *= 100;
+  }
+  console.log(data)
+  return new EmotionsModel(data).save();
 }
 
 function findAll() {

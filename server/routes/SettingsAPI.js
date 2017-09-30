@@ -5,7 +5,7 @@ class SettingsAPI {
 
   get(req, res) {
     SettingsModel.findAll().then(data=> {
-      res.json(data)
+      res.json(data[0])
     }).catch(err=> {
       res.send({})
     });
