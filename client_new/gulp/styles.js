@@ -22,7 +22,7 @@ gulp.task('styles', function() {
 
 var buildStyles = function() {
   var sassOptions = {
-    outputStyle: 'expanded',
+    //outputStyle: 'expanded',
     precision: 10
   };
 
