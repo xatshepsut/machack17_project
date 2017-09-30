@@ -25,7 +25,7 @@
     {
       "type": "git",
       "url": "https://github.com/julmot/nw.js-examples.git",
-      "path": "client/"
+      "path": "src/"
     }
   ],
   "dependencies": {
