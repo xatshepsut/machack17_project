@@ -2,7 +2,7 @@
   'use strict';
 
   angular
-    .module('sitepointBrowserMaster')
+    .module('app')
     .run(runBlock);
 
   /** @ngInject */
