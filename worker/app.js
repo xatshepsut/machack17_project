@@ -46,9 +46,13 @@ function recognizeEmotionsFromFile(filePath, onSuccess, onFailure) {
           console.log("No face/emotion found. Probably nobody is watching on camera.");
           return;
         }
+        var emotion = parsedBody[0];
+
+        // Set timestamp
+        emotion.timestamp = new Date();
 
         // Send to server
-        var emotionData = {"emotions":JSON.stringify(parsedBody[0])};
+        var emotionData = {"emotions":JSON.stringify(emotion)};
         console.log(emotionData);
         onSuccess(emotionData); // sendEmotionToServer(emotionData);
       } else {
