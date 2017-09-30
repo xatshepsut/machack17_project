@@ -6,10 +6,20 @@ import logger from 'morgan';
 // import favicon from 'serve-favicon';
 import path from 'path';
 import sassMiddleware from 'node-sass-middleware';
+import mongoose from 'mongoose';
 import index from './routes/index';
 
 const app = express();
 const debug = Debug('server:app');
+
+//connecting mongodb
+mongoose.connect("mongodb://localhost/emojiDev", (err) => {
+  mongoose.Promise = global.Promise;// this will prevent deprecation warning
+  if (err) {
+    console.log(`DB connection exception: ${err}`);
+    process.exit(1);
+  }
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
