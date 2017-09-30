@@ -16,15 +16,4 @@
     display: flex;
     flex-flow: column nowrap;
   }
-
-  .button-icon {
-    font-size: 35px;
-    background: none;
-    border: none;
-    outline: none;
-
-    &:active {
-      opacity: 0.6;
-    }
-  }
 }

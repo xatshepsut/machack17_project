@@ -3,7 +3,7 @@
 
   angular
     .module('app')
-    .factory('Statistics', statisticsService);
+    .factory('StatisticsService', statisticsService);
 
   /** @ngInject */
   function statisticsService($resource, host) {
