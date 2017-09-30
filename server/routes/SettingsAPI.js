@@ -12,6 +12,7 @@ class SettingsAPI {
   }
 
   update(req, res) {
+    console.log(req.body);
     SettingsModel.save(JSON.parse(req.body.settings)).then((data)=> {
       res.json(data);
     }).catch(err=> {
