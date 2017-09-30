@@ -2,10 +2,10 @@
   "name": "nw.js-examples",
   "version": "1.0.0",
   "description": "nw.js features demonstrated in a simple project",
-  "main": "views/main.html",
+  "main": "views/statistics.html",
   "window": {
-    "min_width": 400,
-    "min_height": 420,
+    "min_width": 1280,
+    "min_height": 660,
     "icon": "assets/icon.png"
   },
   "maintainers": [
