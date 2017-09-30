@@ -48,6 +48,16 @@ body,
   }
 }
 
+.column {
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.row {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
 .padding {
   padding: 10px;
 }
@@ -89,6 +99,22 @@ body,
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
+}
+
+.dnd-label {
+  font-weight: 500;
+  padding-right: 20px;
+  padding-top: 5px;
+  font-size: 17px;
+}
+
+.btn-primary {
+  background-color: #b73333 !important;
+  border-color: #a42e50 !important;
+}
+
+.text {
+  font-size: 20px;
 }
 
 /**
