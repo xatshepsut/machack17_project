@@ -5,7 +5,7 @@
     .module('app')
     .controller('StatisticsController', StatisticsController);
 
-  function StatisticsController($state, StatisticsService) {
+  function StatisticsController($state, Statistics) {
     var vm = this;
     vm.statistics = [];
 
