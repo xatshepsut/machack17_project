@@ -14,6 +14,7 @@
     function back() {
       $state.go('main');
     }
+    
     vm.updateSettings = function() {
       Settings.update({settings: JSON.stringify(vm.settings)}, function(data) {
         console.log(data);
