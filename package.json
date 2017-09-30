@@ -15,8 +15,8 @@
     "url": "https://github.com/julmot/nw.js-examples/issues"
   },
   "scripts": {
-    "dev": "nw src/",
-    "prod": "nwbuild --platforms win32,win64,osx64,linux32,linux64 --buildDir dist/ src/"
+    "client_dev": "nw client/",
+    "client_prod": "nwbuild --platforms win32,win64,osx64,linux32,linux64 --buildDir dist/ client/"
   },
   "devDependencies": {
     "nw": "^0.18.3",
