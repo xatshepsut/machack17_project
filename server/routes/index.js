@@ -33,10 +33,6 @@ router.get('/settings', (req, res, next) => {
   return settingsApi.get(req, res);
 });
 
-router.post('/settings', (req, res, next) => {
-  return settingsApi.create(req, res);
-});
-
 router.put('/settings', (req, res, next) => {
   return settingsApi.update(req, res);
 });

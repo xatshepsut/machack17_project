@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 let EmotionsSchema = new Schema({
   "faceRectangle": {type: Object},
   "scores": {type: Object},
-  "timeStamp": {type: Date, required: true}
+  "timestamp": {type: Date, required: true}
 });
 
 let EmotionsModel = mongoose.model('emotions', EmotionsSchema);
