@@ -3,7 +3,7 @@
   'use strict';
 
   angular
-    .module('sitepointBrowserMaster')
+    .module('app')
     .constant('malarkey', malarkey)
     .constant('moment', moment);
 
