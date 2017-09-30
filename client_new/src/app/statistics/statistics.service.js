@@ -13,6 +13,10 @@
       getAll: {
         method: 'GET',
         isArray: true
+      },
+      latest: {
+        method: 'GET',
+        url: host + 'emotions/latest'
       }
     });
   }
