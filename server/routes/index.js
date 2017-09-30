@@ -21,6 +21,11 @@ router.get('/emotions', (req, res, next) => {
   return emotionsApi.get(req, res);
 });
 
+router.get('/emotions/latest', (req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  return emotionsApi.getOne(req, res);
+});
+
 router.post('/emotions', (req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*');
   return emotionsApi.create(req, res);
