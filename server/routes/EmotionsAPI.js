@@ -13,6 +13,15 @@ class EmotionsAPI {
     });
   }
 
+  getOne(req, res) {
+    EmotionsModel.findOne()
+      .then(data=> {
+        res.json(data)
+      }).catch(err=> {
+      res.send({})
+    });
+  }
+
   create(req, res) {
     EmotionsModel.save(req.body.emotions).then((res)=> {
 

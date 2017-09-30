@@ -23,8 +23,13 @@ function findAll() {
   return EmotionsModel.find()
 }
 
+function findOne() {
+  return EmotionsModel.findOne()
+}
+
 export default {
   save: save,
-  findAll: findAll
+  findAll: findAll,
+  findOne: findOne
 };
 
