@@ -5,19 +5,18 @@
     .module('app')
     .controller('SettingsController', SettingsController);
 
-  function SettingsController(SettingsApiService) {
+  function SettingsController(Settings) {
     var vm = this;
-    vm.title = 'Settings Page';
 
-    init();
+    vm.settings = {};
 
-    function init() {
-      console.log('smth', SettingsApiService);
-      SettingsApiService.getSettings().then(function(data) {
-        console.log(data);
-      }).catch(function(error) {
-        console.log(error);
-      });
-    }
+
+
+
+    Settings.get(function(data) {
+      vm.settings = data;
+    }, function(err) {
+      console.log(err);
+    });
   }
 })();
