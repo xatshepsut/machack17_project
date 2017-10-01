@@ -24,7 +24,7 @@ function findAll() {
 }
 
 function findOne() {
-  return EmotionsModel.findOne()
+  return EmotionsModel.findOne().sort({ timestamp: -1 })
 }
 
 export default {
