@@ -2,10 +2,48 @@
   'use strict';
 
   angular
-    .module('app')
+    .module('app', ['ng-fusioncharts'])
     .controller('StatisticsController', StatisticsController);
 
   function StatisticsController($state, Statistics) {
+
+    $scope.dataSource = {
+		chart: {
+			caption: "Age profile of website visitors",
+			subcaption: "Last Year",
+			startingangle: "120",
+			showlabels: "0",
+			showlegend: "1",
+			enablemultislicing: "0",
+			slicingdistance: "15",
+			showpercentvalues: "1",
+			showpercentintooltip: "0",
+			plottooltext: "Age group : $label Total visit : $datavalue",
+			theme: "fint"
+		},
+		data: [
+			{
+				label: "Happy",
+				value: "75",
+				color: "#00beef"
+			},
+			{
+				label: "Sad",
+				value: "20",
+			},
+			{
+				label: "Angry",
+				value: "0.01",
+			},
+			{
+				label: "Neutral",
+				value: "5",
+			}
+		]
+	}
+
+
+
     var vm = this;
     vm.statistics = [];
 
