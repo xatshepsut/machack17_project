@@ -6,6 +6,14 @@
         <div class="panel panel-default">
             <div class="panel-heading">x y</div>
             <div class="panel-body">
+
+            <fusioncharts
+				width= "100%"
+				height= "400"
+				type= "pie3d"
+				dataFormat= "json"
+				dataSource= "{{dataSource}}">
+			</fusioncharts>
                 <canvas id="base" class="chart-bar"
                         chart-data="StatisticsCtrl.data" chart-labels="StatisticsCtrl.labels" chart-colors="StatisticsCtrl.colors"
                         chart-dataset-override="StatisticsCtrl.datasetOverride" >
