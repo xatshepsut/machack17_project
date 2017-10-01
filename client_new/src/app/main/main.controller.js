@@ -6,7 +6,7 @@
     .controller('MainController', MainController);
 
   /** @ngInject */
-  function MainController($state, $timeout, $interval,$window, Statistics) {
+  function MainController($state, $timeout, $interval,$window, Statistics, Settings) {
     var vm = this;
     vm.openSettings = openSettings;
     vm.openStatistics = openStatistics;
@@ -43,6 +43,10 @@
     }
 
     function notifyMe() {
+      if(Settings.dnd) {
+        return;
+      }
+
       // Let's check if the browser supports notifications
       if (!("Notification" in window)) {
         alert("This browser does not support desktop notification");
@@ -91,12 +95,14 @@
           } else {
             vm.currentMood.icon = 'icon-frustrated';
           }
+          notifyMe();
           break;
         case 'contempt':
           vm.currentMood.icon = 'icon-cool';
           break;
         case 'disgust':
           vm.currentMood.icon = 'icon-confused';
+          notifyMe();
           break;
         case 'fear':
           if (max < 50) {
@@ -104,6 +110,7 @@
           } else {
             vm.currentMood.icon = 'icon-baffled';
           }
+          notifyMe();
           break;
         case 'happiness':
           if (max < 30) {
@@ -127,6 +134,7 @@
           } else {
             vm.currentMood.icon = 'icon-crying';
           }
+          notifyMe();
           break;
         case 'surprise':
           vm.currentMood.icon = 'icon-shocked';
